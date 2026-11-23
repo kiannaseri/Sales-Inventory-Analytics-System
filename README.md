@@ -1,342 +1,210 @@
-# 🚀 Sales & Inventory Analytics System
+# 📊 Sales & Inventory Analytics System
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?logo=opensourceinitiative&logoColor=white)](LICENSE)
-[![UI](https://img.shields.io/badge/UI-CustomTkinter-purple?logo=python&logoColor=white)](https://github.com/TomSchimansky/CustomTkinter)
-[![Database](https://img.shields.io/badge/Database-SQLite-orange?logo=sqlite&logoColor=white)]()
-[![Version](https://img.shields.io/badge/Version-1.0-brightgreen)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+<div align="center">
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x400/1a1a2e/white?text=Sales+Analytics+Dashboard" alt="Dashboard Preview" width="800">
-</p>
+**A bilingual Python desktop application for exploring sales performance, inventory, and customer behavior.**
 
-## 📊 **The Ultimate Sales Intelligence Platform**
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![UI](https://img.shields.io/badge/UI-CustomTkinter-2B579A)](https://github.com/TomSchimansky/CustomTkinter)
+[![Database](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> **Transform your raw sales data into actionable business insights with 12 powerful analytics modules, stunning visualizations, and enterprise-grade features.**
+</div>
 
-A comprehensive desktop application that revolutionizes how businesses analyze sales data, manage inventory, and understand customer behavior. Built with modern Python technologies and a focus on user experience.
+> [!CAUTION]
+> **Security notice — this repository is not production-ready.** The current Git history includes local SQLite database files and a runtime user file. The authentication implementation also seeds a known demo administrator account and hashes passwords with plain SHA-256. Do not use the committed database files, real credentials, or real customer data with this application. Read [SECURITY.md](SECURITY.md) before running or deploying it.
 
 ---
 
-## ✨ **What Makes This System Special?**
+## Overview
 
-### 🎯 **12 Enterprise-Grade Analytics Modules**
+Sales & Inventory Analytics System is a desktop application for importing tabular business data, cleaning it, exploring key sales and inventory metrics, and exporting reports. Its interface supports Persian and English.
 
-| # | Module | What It Does | Business Value |
-|---|--------|--------------|----------------|
-| 1 | **Daily Sales Report** | Sales amount, order count, AOV tracking | Monitor daily performance |
-| 2 | **Inventory Forecast** | 7-day moving average prediction | Prevent stockouts |
-| 3 | **Slow Moving Products** | Products with 30+ days no sales | Optimize inventory turnover |
-| 4 | **Monthly Sales Trend** | 6-month trend analysis | Identify seasonal patterns |
-| 5 | **Conversion Rate** | End-to-end conversion tracking | Optimize sales funnel |
-| 6 | **Basket Analysis** | Average items per basket | Increase cross-selling |
-| 7 | **Churn Rate Analysis** | 30/60 day customer retention | Reduce customer loss |
-| 8 | **Top 10 Products** | Best sellers ranking | Focus on winners |
-| 9 | **Bottom 10 Products** | Underperformers identification | Improve or discontinue |
-| 10 | **Low Stock Alert** | Inventory below threshold | Prevent lost sales |
-| 11 | **RFM Segmentation** | Loyal/Regular/At Risk customers | Targeted marketing |
-| 12 | **Sales Funnel** | View→Cart→Checkout→Purchase | Optimize conversion path |
+The application is designed as a local analytics prototype. It is not an ERP replacement or a hardened multi-user production system.
 
----
+## Features
 
-## 🔥 **Key Features That Stand Out**
+### Data import and preparation
 
-### 🔐 **Enterprise Authentication System**
-- ✅ Secure user registration & login with SHA-256 password hashing
-- ✅ Password recovery via security questions
-- ✅ Role-based access control (Admin/User)
-- ✅ Session persistence across restarts
+- Import Excel and CSV files.
+- Import from supported external sources through the import module, including Google Sheets, Dropbox, REST endpoints, and database connections.
+- Validate required sales-data columns.
+- Clean empty rows, missing required values, invalid dates, invalid numeric values, negative values, and duplicate rows.
+- Preview imported and cleaned data.
 
-### 🌍 **Multi-Language Support**
-- ✅ Full Persian (فارسی) interface
-- ✅ Full English interface
-- ✅ Instant language switching
-- ✅ RTL support for Persian
+### Analytics
 
-### 📂 **Import From Anywhere**
-- ✅ Microsoft Excel (.xlsx, .xls)
-- ✅ CSV files with auto-encoding detection
-- ✅ Google Sheets (via shareable link)
-- ✅ Dropbox direct links
-- ✅ REST API endpoints (JSON)
-- ✅ SQLite/PostgreSQL/MySQL databases
+The current analytics module exposes these 11 analysis outputs:
 
-### 🧹 **Smart Data Cleaning**
-- ✅ Automatic removal of invalid dates
-- ✅ Empty product/customer filtering
-- ✅ Negative/zero sales elimination
-- ✅ Duplicate record detection
-- ✅ Real-time cleaning statistics
+1. Daily sales report.
+2. Seven-day inventory forecast.
+3. Slow-moving products.
+4. Sales trend.
+5. Conversion rate.
+6. Basket analysis.
+7. Customer churn analysis.
+8. Top- and low-performing products.
+9. Low-stock alerts.
+10. RFM customer segmentation.
+11. Sales-funnel conversion.
 
-### 📊 **Professional Visualizations**
-- ✅ Line charts for trends
-- ✅ Bar charts for comparisons
-- ✅ Pie charts for distribution
-- ✅ Horizontal bar charts for rankings
-- ✅ Interactive matplotlib charts
-- ✅ Export as PNG/PDF
+The available results depend on the columns and quality of the imported dataset. Forecasts and customer metrics should be treated as exploratory outputs, not business guarantees.
 
-### 🎨 **Modern User Experience**
-- ✅ Dark/Light mode toggle
-- ✅ Responsive card-based design
-- ✅ Real-time statistics dashboard
-- ✅ Sortable data preview table
-- ✅ Professional color scheme
-- ✅ Smooth animations
+### Dashboard and reporting
 
-### 💾 **Export Capabilities**
-- ✅ Multi-sheet Excel reports
-- ✅ Professional PDF documents
-- ✅ Interactive HTML dashboards
-- ✅ Database persistence
+- Quick summary metrics for sales, customers, products, and records.
+- Interactive charts rendered with Matplotlib.
+- Dark and light appearance modes.
+- Persian and English interface text.
+- Export helpers for Excel, PDF, and HTML reports.
+- Local persistence through SQLite.
 
----
-📦 Installation Guide
-Step 1: Clone & Navigate
-bash
+## Technology
 
-git clone https://github.com/yourusername/sales-analytics-system.git
-cd sales-analytics-system
+| Area | Tools |
+|---|---|
+| Desktop UI | CustomTkinter, Tkinter |
+| Language | Python |
+| Data processing | Pandas, NumPy |
+| Visualization | Matplotlib |
+| Spreadsheet support | OpenPyXL |
+| HTTP integrations | Requests |
+| Local storage | SQLite |
+| Tests | pytest |
 
-Step 2: Install Dependencies
-bash
+## Application flow
 
-# Core requirements
-pip install customtkinter pandas numpy matplotlib openpyxl requests
+```mermaid
+flowchart TD
+    A[Launch application] --> B[Authentication window]
+    B --> C[Sales analytics dashboard]
+    C --> D[Import business data]
+    D --> E[Validate and clean]
+    E --> F[Explore dashboard and analytics]
+    F --> G[Save locally in SQLite]
+    F --> H[Export reports]
+```
 
-# Optional: For PDF export
-pip install reportlab
+## Getting started
 
-# Optional: For PostgreSQL support
-pip install psycopg2-binary
+### Requirements
 
-Step 3: Run Application
-bash
+- Python 3.10 or a compatible Python environment.
+- pip.
+- Windows, macOS, or Linux with a working Tkinter installation.
 
-python auth.py
+### 1. Clone the repository
 
-Default Admin Credentials
+```bash
+git clone https://github.com/kiannaseri/Sales-Inventory-Analytics-System.git
+cd Sales-Inventory-Analytics-System
+```
 
-Username: admin
-Password: admin123
+### 2. Create and activate a virtual environment
 
-sales-analytics-system/
-│
-├── 🚀 auth.py              # Authentication window
-├── 🎯 app.py               # Main application
-├── 💾 database.py          # Database operations
-├── 🌍 languages.py         # Multi-language texts
-├── 🎨 theme_manager.py     # Dark/light mode manager
-├── 📥 import_sources.py    # Data import handlers
-├── 📤 exports.py           # Export functionality
-├── 🔐 users.db             # User database (auto-generated)
-├── 📊 data.db              # Sales database (auto-generated)
-└── 📋 requirements.txt     # Dependencies list
+**Windows (PowerShell):**
 
-🔮 Version 2.0 Roadmap
-Coming Soon (Q2 2025)
-Feature	Description	Status
-🤖 AI Forecasting	Prophet/LSTM for sales prediction	🚧 In Development
-📧 Email Reports	Automated scheduled reports with charts	🚧 In Development
-📱 Mobile App	React Native companion app	📋 Planned
-🌐 Real-time Dashboard	WebSocket-powered live updates	📋 Planned
-📷 Barcode Scanner	Inventory management with camera	📋 Planned
-🔔 Smart Alerts	WhatsApp/SMS low stock notifications	📋 Planned
-☁️ Cloud Backup	Google Drive/Dropbox integration	📋 Planned
-🏢 Multi-Branch	Support for multiple locations	📋 Planned
-🎤 Voice Commands	Hands-free operation	📋 Planned
-📊 Advanced Analytics	Predictive customer churn	📋 Planned
-CSharp Data Analyzer Project Plan
-markdown
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
 
-# 🚀 Sales & Inventory Analytics System
+**macOS / Linux:**
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?logo=opensourceinitiative&logoColor=white)](LICENSE)
-[![UI](https://img.shields.io/badge/UI-CustomTkinter-purple?logo=python&logoColor=white)](https://github.com/TomSchimansky/CustomTkinter)
-[![Database](https://img.shields.io/badge/Database-SQLite-orange?logo=sqlite&logoColor=white)]()
-[![Version](https://img.shields.io/badge/Version-1.0-brightgreen)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x400/1a1a2e/white?text=Sales+Analytics+Dashboard" alt="Dashboard Preview" width="800">
-</p>
+### 3. Install application dependencies
 
-## 📊 **The Ultimate Sales Intelligence Platform**
+The application source and its dependency file are inside the `data/` directory:
 
-> **Transform your raw sales data into actionable business insights with 12 powerful analytics modules, stunning visualizations, and enterprise-grade features.**
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r data/requirements.txt
+```
 
-A comprehensive desktop application that revolutionizes how businesses analyze sales data, manage inventory, and understand customer behavior. Built with modern Python technologies and a focus on user experience.
+### 4. Launch the application
 
----
+```bash
+cd data
+python main.py
+```
 
-## ✨ **What Makes This System Special?**
+Use the registration screen to create a local account. **Do not use the application with real credentials or sensitive business data** until the authentication and repository-security issues described in [SECURITY.md](SECURITY.md) have been resolved.
 
-### 🎯 **12 Enterprise-Grade Analytics Modules**
+## Run tests
 
-| # | Module | What It Does | Business Value |
-|---|--------|--------------|----------------|
-| 1 | **Daily Sales Report** | Sales amount, order count, AOV tracking | Monitor daily performance |
-| 2 | **Inventory Forecast** | 7-day moving average prediction | Prevent stockouts |
-| 3 | **Slow Moving Products** | Products with 30+ days no sales | Optimize inventory turnover |
-| 4 | **Monthly Sales Trend** | 6-month trend analysis | Identify seasonal patterns |
-| 5 | **Conversion Rate** | End-to-end conversion tracking | Optimize sales funnel |
-| 6 | **Basket Analysis** | Average items per basket | Increase cross-selling |
-| 7 | **Churn Rate Analysis** | 30/60 day customer retention | Reduce customer loss |
-| 8 | **Top 10 Products** | Best sellers ranking | Focus on winners |
-| 9 | **Bottom 10 Products** | Underperformers identification | Improve or discontinue |
-| 10 | **Low Stock Alert** | Inventory below threshold | Prevent lost sales |
-| 11 | **RFM Segmentation** | Loyal/Regular/At Risk customers | Targeted marketing |
-| 12 | **Sales Funnel** | View→Cart→Checkout→Purchase | Optimize conversion path |
+From the repository root:
 
----
+```bash
+python -m pip install -r data/requirements-dev.txt
+python -m pytest -q
+```
 
-## 🔥 **Key Features That Stand Out**
+The current test suite focuses on data cleaning and required-column validation.
 
-### 🔐 **Enterprise Authentication System**
-- ✅ Secure user registration & login with SHA-256 password hashing
-- ✅ Password recovery via security questions
-- ✅ Role-based access control (Admin/User)
-- ✅ Session persistence across restarts
+## Expected input columns
 
-### 🌍 **Multi-Language Support**
-- ✅ Full Persian (فارسی) interface
-- ✅ Full English interface
-- ✅ Instant language switching
-- ✅ RTL support for Persian
+The data-cleaning and analytics modules use the following fields:
 
-### 📂 **Import From Anywhere**
-- ✅ Microsoft Excel (.xlsx, .xls)
-- ✅ CSV files with auto-encoding detection
-- ✅ Google Sheets (via shareable link)
-- ✅ Dropbox direct links
-- ✅ REST API endpoints (JSON)
-- ✅ SQLite/PostgreSQL/MySQL databases
+| Column | Purpose |
+|---|---|
+| `date` | Transaction or activity date |
+| `product` | Product name |
+| `sales_amount` | Sales value |
+| `quantity_sold` | Units sold |
+| `customer_id` | Customer identifier |
+| `current_inventory` | Current stock quantity |
 
-### 🧹 **Smart Data Cleaning**
-- ✅ Automatic removal of invalid dates
-- ✅ Empty product/customer filtering
-- ✅ Negative/zero sales elimination
-- ✅ Duplicate record detection
-- ✅ Real-time cleaning statistics
+Some analytics use additional optional fields, such as `product_views`, `add_to_cart`, `checkout_start`, `successful_purchase`, `category`, and `alert_threshold`.
 
-### 📊 **Professional Visualizations**
-- ✅ Line charts for trends
-- ✅ Bar charts for comparisons
-- ✅ Pie charts for distribution
-- ✅ Horizontal bar charts for rankings
-- ✅ Interactive matplotlib charts
-- ✅ Export as PNG/PDF
+## Repository structure
 
-### 🎨 **Modern User Experience**
-- ✅ Dark/Light mode toggle
-- ✅ Responsive card-based design
-- ✅ Real-time statistics dashboard
-- ✅ Sortable data preview table
-- ✅ Professional color scheme
-- ✅ Smooth animations
+```text
+Sales-Inventory-Analytics-System/
+├── README.md
+├── SECURITY.md
+├── LICENSE
+├── tests/
+│   └── test_data_cleaner.py
+└── data/
+    ├── main.py
+    ├── auth.py
+    ├── app.py
+    ├── analytics.py
+    ├── data_cleaner.py
+    ├── database.py
+    ├── import_sources.py
+    ├── exports.py
+    ├── languages.py
+    ├── theme_manager.py
+    ├── requirements.txt
+    └── requirements-dev.txt
+```
 
-### 💾 **Export Capabilities**
-- ✅ Multi-sheet Excel reports
-- ✅ Professional PDF documents
-- ✅ Interactive HTML dashboards
-- ✅ Database persistence
+## Security and production readiness
+
+Before using this project beyond local experimentation:
+
+- Remove tracked local databases and runtime identity files from the repository after backing up anything that must be retained.
+- Treat any real personal data or credentials committed in the past as potentially exposed.
+- Replace the known demo administrator setup.
+- Replace plain SHA-256 password hashing with a password-hashing algorithm designed for credentials, such as Argon2id, scrypt, or bcrypt.
+- Review password recovery, session handling, access control, and database storage.
+- Keep secrets and real business data outside Git.
+
+See [SECURITY.md](SECURITY.md) for the full checklist. Adding files to `.gitignore` does not remove files that Git already tracks.
+
+## License
+
+This project is distributed under the MIT License. See [LICENSE](LICENSE).
 
 ---
 
-## 🛠️ **Technology Stack**
+<div align="center">
 
-### Core Framework
-python
-Python 3.10+          # Core programming language
-CustomTkinter         # Modern GUI framework
-Pandas                # Data manipulation
-NumPy                 # Numerical computations
+**Built by [Kian Naseri](https://github.com/kiannaseri)**
 
-Data & Visualization
-python
-
-Matplotlib            # Charts & graphs
-OpenPyXL              # Excel processing
-SQLite3               # Local database
-ReportLab             # PDF generation
-
-Security & Networking
-python
-
-Hashlib               # Password encryption
-Secrets               # Token generation
-Requests              # API integration
-
-📦 Installation Guide
-Step 1: Clone & Navigate
-bash
-
-git clone https://github.com/yourusername/sales-analytics-system.git
-cd sales-analytics-system
-
-Step 2: Install Dependencies
-bash
-
-# Core requirements
-pip install customtkinter pandas numpy matplotlib openpyxl requests
-
-# Optional: For PDF export
-pip install reportlab
-
-# Optional: For PostgreSQL support
-pip install psycopg2-binary
-
-Step 3: Run Application
-bash
-
-python auth.py
-
-Default Admin Credentials
-text
-
-Username: admin
-Password: admin123
-
-📁 Project Structure
-
-sales-analytics-system/
-│
-├── 🚀 auth.py              # Authentication window
-├── 🎯 app.py               # Main application
-├── 💾 database.py          # Database operations
-├── 🌍 languages.py         # Multi-language texts
-├── 🎨 theme_manager.py     # Dark/light mode manager
-├── 📥 import_sources.py    # Data import handlers
-├── 📤 exports.py           # Export functionality
-├── 🔐 users.db             # User database (auto-generated)
-├── 📊 data.db              # Sales database (auto-generated)
-└── 📋 requirements.txt     # Dependencies list
-
-
-📄 License
-Distributed under the MIT License. See LICENSE for more information.
-
-📧 Contact & Social
-Platform	Link
-📧 Email	kian.n.8484@gmai.com
-💼 LinkedIn :	linkedin.com/kiannaseri
-🐙 GitHub :	github.com/kiannaseri
-
-
-## 🛠️ **Technology Stack**
-
-### Core Framework
-```python
-Python 3.10+          # Core programming language
-CustomTkinter         # Modern GUI framework
-Pandas                # Data manipulation
-NumPy                 # Numerical computations
-
-Data & Visualization
-python
-Matplotlib            # Charts & graphs
-OpenPyXL              # Excel processing
-SQLite3               # Local database
-ReportLab             # PDF generation
+</div>
